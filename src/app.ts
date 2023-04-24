@@ -2,8 +2,14 @@ import express, { Application } from 'express';
 import bodyParser from 'body-parser';
 import config from './config';
 import mainRouter from './routes';
+import cors from "cors";
 
 const app: Application = express();
+
+app.use(cors({
+origin: "*",
+optionsSuccessStatus: 200
+}))
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
